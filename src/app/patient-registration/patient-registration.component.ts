@@ -7,7 +7,7 @@ import { PatientService } from '../patient.service';
   styleUrls: ['./patient-registration.component.css']
 })
 export class PatientRegistrationComponent {
-  patient: any = {}; // Rename newPatient to patient
+  patient: any = {};
 
   constructor(private patientService: PatientService) { }
 
@@ -18,7 +18,6 @@ export class PatientRegistrationComponent {
       },
       (error: any) => {
         console.error('Error adding patient:', error);
-        // Handle any error scenarios
       }
     );
   }

@@ -1,4 +1,7 @@
 <h2>Patients of Doctor {{ doctorId }}</h2>
+<input type="number" [(ngModel)]="doctorId">
+<button (click)="getDoctorPatients()">Get Patients</button>
+
 <ul>
   <li *ngFor="let patient of doctorPatients">
     <span>ID: {{ patient.id }}</span>

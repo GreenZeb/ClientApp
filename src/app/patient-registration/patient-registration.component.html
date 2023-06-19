@@ -1,5 +1,5 @@
 <h2>Add New Patient</h2>
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" #patientForm="ngForm">
   <div>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" [(ngModel)]="patient.name" required>
