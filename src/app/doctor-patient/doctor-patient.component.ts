@@ -9,17 +9,26 @@ import { PatientService } from '../patient.service';
 export class DoctorPatientsComponent {
   doctorId: number = 1;
   doctorPatients: any[] = [];
+  allPatients: any[] = [];
 
   constructor(private patientService: PatientService) { }
 
-  getDoctorPatients() {
-    this.patientService.getDoctorPatients(this.doctorId).subscribe(
+  ngOnInit() {
+    this.getAllPatients();
+  }
+
+  getAllPatients() {
+    this.patientService.getAllPatients().subscribe(
       (data: any[]) => {
-        this.doctorPatients = data;
+        this.allPatients = data;
       },
       (error: any) => {
-        console.error('Error retrieving doctor\'s patients:', error);
+        console.error('Error retrieving patients:', error);
       }
     );
+  }
+
+  getDoctorPatients() {
+    this.doctorPatients = this.allPatients.filter(patient => patient.doctorId === this.doctorId);
   }
 }

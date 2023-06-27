@@ -1,12 +1,23 @@
-<h2>Patients of Doctor {{ doctorId }}</h2>
-<input type="number" [(ngModel)]="doctorId">
-<button (click)="getDoctorPatients()">Get Patients</button>
+<h2>Patients of Doctor</h2>
 
-<ul>
-  <li *ngFor="let patient of doctorPatients">
-    <span>ID: {{ patient.id }}</span>
-    <span>Name: {{ patient.name }}</span>
-    <span>Age: {{ patient.age }}</span>
-    <span>Doctor ID: {{ patient.doctorId }}</span>
-  </li>
-</ul>
+<input type="number" [(ngModel)]="doctorId" placeholder="Enter Doctor ID">
+<button (click)="getDoctorPatients()" class="button-gap">Get Patients</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Doctor ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patient of doctorPatients">
+      <td>{{ patient.id }}</td>
+      <td>{{ patient.name }}</td>
+      <td>{{ patient.age }}</td>
+      <td>{{ patient.doctorId }}</td>
+    </tr>
+  </tbody>
+</table>
